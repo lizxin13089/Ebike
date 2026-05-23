@@ -67,7 +67,7 @@ int main()
         }
         
         //chose Ebike
-        cout<<"inserisci la bici che vuoi:";
+        cout<<"inserisci la bici che vuoi(non id):";
         cin>>id;
         while(id-1<0||id-1>n||bicitot[id-1].disp==false){
             cout<<"Non esiste o non disponibile:";

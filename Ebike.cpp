@@ -29,15 +29,34 @@ bool confrontaDistanza(const Ebike &a, const Ebike &b) {
 
 int main()
 {
-    int n=3;
+    srand(time(NULL));
+    int n=20;
     Ebike bicitot[n]={{2,4,true,3345,34},{5,1,true,2390,50},{10,6,false,8900,120}};
+    for(int i=0;i<n;i++){
+        bicitot[i].x=rand()%40;
+        bicitot[i].y=rand()%40;
+        bicitot[i].disp=rand()%2;
+        bicitot[i].id=rand()%4000;
+        bicitot[i].kmresta=rand()%400;
+    }
     
-    
+    int scelta;
     double x,y;
-    
     cout<<giallo<<"Ebike\n"<<clear;
     cout<<"Hello!\n";
-    cout<<"Inserisci il tuo posto\n";
+    cout<<"Il programma ti cerca e ordina le bici. poi alla scelta ti calcola tempi e soldi da pagare quando arrivi\n";
+    cout<<"1.inizia  0.uscire\n";
+    do{
+        cin>>scelta;
+        if(scelta==0){
+            return 0;
+        }
+        if(scelta!=1){
+            cout<<"non esiste\n";
+        }
+    }while(scelta!=1);
+    
+    cout<<"Inserisci la tua posizione\n";
     cout<<"x:";
     cin>>x;
     cout<<"y:";
@@ -64,7 +83,7 @@ int main()
         //visualizazione
         for(int i=0;i<n;i++){
             if(bicitot[i].disp){
-                cout<<i+1<<". id:"<<bicitot[i].id<<"   distanza:"<<bicitot[i].dista<<"   Km resta:"<<bicitot[i].kmresta<<endl;
+                cout<<i+1<<". id:"<<bicitot[i].id<<"   distanza:"<<bicitot[i].dista<<"   Km resta:"<<bicitot[i].kmresta/*<<"   xy:"<<bicitot[i].x<<","<<bicitot[i].y*/<<endl;
             }
         }
         
@@ -83,13 +102,14 @@ int main()
             cin>>kmPerc;
         }
         if(bicitot[id-1].kmresta-kmPerc<0){
-            cout<<"Non riesce ad arrivare";
+            system("clear");
+            cout<<"Non riesce ad arrivare\n";
         }
     }while(bicitot[id-1].kmresta-kmPerc<0);
     bicitot[id-1].kmresta-=kmPerc;
     bicitot[id-1].disp=false;
     //test
-    cout<<". id:"<<bicitot[id-1].id<<"   distanza:"<<bicitot[id-1].dista<<"   Km resta:"<<bicitot[id-1].kmresta<<endl;
+    //cout<<"id:"<<bicitot[id-1].id<<"   distanza:"<<bicitot[id-1].dista<<"   Km resta:"<<bicitot[id-1].kmresta<<endl;
     
     //calc soldi e tempo
     int ritardo;

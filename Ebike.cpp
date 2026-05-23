@@ -5,6 +5,8 @@
 #include <ctime>
 #include <string>
 using namespace std;
+#define giallo "\033[1m\033[33m"
+#define clear "\033[0m"
 
 struct Ebike{
     double x;
@@ -33,7 +35,7 @@ int main()
     
     double x,y;
     
-    cout<<"Ebike\n";
+    cout<<giallo<<"Ebike\n"<<clear;
     cout<<"Hello!\n";
     cout<<"Inserisci il tuo posto\n";
     cout<<"x:";

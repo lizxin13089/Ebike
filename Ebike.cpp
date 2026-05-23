@@ -30,8 +30,10 @@ int main()
     int n=3;
     Ebike bicitot[n]={{2,4,true,3345,34},{5,1,true,2390,50},{10,6,false,8900,120}};
     
+    
     double x,y;
     
+    cout<<"Ebike\n";
     cout<<"Hello!\n";
     cout<<"Inserisci il tuo posto\n";
     cout<<"x:";
